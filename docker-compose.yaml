@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.11-management
+    container_name: checkout-manager-rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=rmq
+      - RABBITMQ_DEFAULT_PASS=rmq
+      - RABBITMQ_DEFAULT_VHOST=card
+    ports:
+      - "5672:5672"
+      - "15672:15672"

@@ -1,0 +1,9 @@
+version: "1"
+project:
+    id: ""
+packages:
+  - path: "./db/sqlc"
+    name: "db"
+    engine: "postgresql"
+    schema: "./db/migration/"
+    queries: "./db/query/"
