@@ -7,4 +7,5 @@ packages:
     engine: "postgresql"
     schema: "./db/migration/"
     queries: "./db/query/"
+    emit_interface: true
     emit_empty_slices: true
