@@ -89,7 +89,7 @@ func TestCreateUser(t *testing.T) {
 			tc.buildStubs(store)
 
 			// start test server and send request
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 
 			//marshal body data to JSON
@@ -126,10 +126,10 @@ func requireBodyMatchUser(t *testing.T, body *bytes.Buffer, user db.User) {
 	data, err := io.ReadAll(body)
 	require.NoError(t, err)
 
-	var gotResponse createUserResponse
+	var gotResponse userResponse
 	err = json.Unmarshal(data, &gotResponse)
 
-	gotUser := createUserResponse{
+	gotUser := userResponse{
 		Username: user.Username,
 		FullName: user.FullName,
 		Email:    user.Email,
